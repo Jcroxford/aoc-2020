@@ -1,8 +1,10 @@
 const fs = require('fs')
 
-/**
- * @param {number} day
- */
-export function pullDataForDay(day) {
-  return fs.readFileSync(`../${day}/input.txt`, 'utf-8')
+module.exports = {
+  /**
+   * @param {number} day
+   */
+  pullDataForDay(day) {
+    return fs.readFileSync(`../${day}/input.txt`, 'utf-8')
+  }
 }
