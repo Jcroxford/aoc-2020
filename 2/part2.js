@@ -19,4 +19,4 @@ function part2() {
   return entries
 }
 
-console.log(part2())
+module.exports = { part2 }

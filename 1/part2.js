@@ -1,6 +1,6 @@
 const { pullDataForDay } = require('../utils/importData')
 
-function find2020Entries() {
+function part2() {
   const entries = pullDataForDay(1).split('\n').map(Number)
 
   for(let entry of entries) {
@@ -13,3 +13,5 @@ function find2020Entries() {
     }
   }
 }
+
+module.exports = { part2 }
