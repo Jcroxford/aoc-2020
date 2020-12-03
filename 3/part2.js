@@ -1,9 +1,6 @@
-const { pullDataForDay } = require('../utils/importData')
 const { part1 } = require('./part1')
 
 function part2() {
-  const entries = pullDataForDay(3)
-
   // [x, y] pair
   const paths = [[1, 1],[3, 1],[5, 1],[7, 1],[1, 2]]
 
