@@ -7,4 +7,4 @@ function part2() {
   return paths.map(([x, y]) => part1(x, y)).reduce((total, next) => total *= next, 1)
 }
 
-console.log(part2())
+module.exports = { part2 }

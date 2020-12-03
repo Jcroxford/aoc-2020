@@ -22,5 +22,3 @@ function part1(traverseX = 3, traverseY = 1) {
 }
 
 module.exports = { part1 }
-
-console.log(part1())
