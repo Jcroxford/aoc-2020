@@ -1,9 +1,24 @@
 const { pullDataForDay } = require('../utils/importData')
 
 function part1() {
-  return getSortedSeatIds()[0]
+  // return getSortedSeatIds()[0]
+  getSortedSeatIdsBetter()[0]
 }
 
+function getSortedSeatIdsBetter() {
+  return pullDataForDay(5)
+    .split('\n')
+    .map(partition => [partition.slice(0, 7), partition.slice(7)])
+    .map(([row, seat]) => [
+      parseInt(row.split('').map(char => char == 'F' ? 0 : 1).join(), 2),
+      parseInt(seat.split('').map(char => char == 'L' ? 0 : 1).join(), 2)
+    ])
+    .map(([row, seat]) => row * 8 + seat)
+    .sort((a, b) => b - a)
+}
+
+
+// ================ because I was too derp to realize it was literally just binary numbers... ================
 function getSortedSeatIds() {
   return pullDataForDay(5)
     .split('\n')
@@ -34,5 +49,6 @@ function spacePartition(upperBound, lowerBound, [ currentChar, ...chars], parseC
   if(!direction) return spacePartition(upperBound - gap, lowerBound, chars, parseCharCallback)
   if(direction) return spacePartition(upperBound, lowerBound + gap, chars, parseCharCallback)
 }
+// =============================================================================================================
 
 module.exports = { part1, getSortedSeatIds }
