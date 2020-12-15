@@ -8,7 +8,6 @@ function part1(upTo = 2020) {
   const dict = new Map()
   let previousAnswer = 0
   for (let i = 1; i <= upTo; i++) {
-    if(!(i % 100000)) console.log(`${i / 1000000}M`)
     // give starting numbers
     if(i <= startingData.length) {
       if(!dict.get(startingData[i - 1])) dict.set(startingData[i - 1], new Map([['secondToLast', null], ['last', null]]))
