@@ -1,4 +1,5 @@
 const { pullDataForDay } = require('../utils/importData')
+const { addNewZLayer, flattenList } = require('./part1')
 
 function part2() {
   const data = pullDataForDay(17)
@@ -45,15 +46,11 @@ function part2() {
   }
 
   return grid
-    .reduce((list, w) => [ ...list, ...w], [])
-    .reduce((list, z) => [ ...list, ...z], [])
-    .reduce((listX, x) => [ ...listX, ...x ], [])
+    .reduce(flattenList, [])
+    .reduce(flattenList, [])
+    .reduce(flattenList, [])
     .filter(x => x == '#')
     .length
-}
-
-function addNewZLayer(grid) {
-  return new Array(grid[0].length).fill(new Array(grid[0][0].length).fill('.'))
 }
 
 function addNewWLayer(grid) {

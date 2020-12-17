@@ -35,8 +35,8 @@ function part1() {
   }
 
   return grid
-    .reduce((list, z) => [ ...list, ...z], [])
-    .reduce((listX, x) => [ ...listX, ...x ], [])
+    .reduce(flattenList, [])
+    .reduce(flattenList, [])
     .filter(x => x == '#')
     .length
 }
@@ -45,4 +45,6 @@ function addNewZLayer(grid) {
   return new Array(grid[0].length).fill(new Array(grid[0][0].length).fill('.'))
 }
 
-module.exports = { part1 }
+const flattenList = (list, subList) => [ ...list, ...subList ]
+
+module.exports = { part1, addNewZLayer, flattenList }
